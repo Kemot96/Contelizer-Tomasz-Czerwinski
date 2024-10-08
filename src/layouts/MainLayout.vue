@@ -1,45 +1,56 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
+      <q-toolbar class="q-pa-sm q-gutter-md">
         <q-btn
           flat
-          dense
           round
+          dense
           icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
+          @click="drawer = !drawer"
+          class="q-mr-md lt-sm"
         />
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <nav class="row items-center q-ml-md gt-xs">
+          <RouterLink to="/" class="q-mr-md">{{
+            $t('header.nav.files')
+          }}</RouterLink>
+          <q-separator dark vertical />
+          <RouterLink to="/pesel" class="q-mx-md">{{
+            $t('header.nav.pesel')
+          }}</RouterLink>
+          <q-separator dark vertical />
+          <RouterLink to="/api" class="q-ml-md">{{
+            $t('header.nav.api')
+          }}</RouterLink>
+        </nav>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-space />
+
+        <!-- <div class="row items-center q-xs-none q-sm-none">
+          <strong>Current route path:</strong>
+          <q-badge color="primary" class="q-ml-xs">{{
+            $route.fullPath
+          }}</q-badge>
+        </div> -->
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
+    <q-drawer v-model="drawer" side="left" overlay>
       <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in linksList"
-          :key="link.title"
-          v-bind="link"
-        />
+        <q-item clickable v-ripple to="/">
+          <q-item-section>{{ $t('header.nav.files') }}</q-item-section>
+        </q-item>
+        <q-item clickable v-ripple to="/pesel">
+          <q-item-section>{{ $t('header.nav.pesel') }}</q-item-section>
+        </q-item>
+        <q-item clickable v-ripple to="/api">
+          <q-item-section>{{ $t('header.nav.api') }}</q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
-    <q-page-container>
+    <q-page-container class="q-pa-md">
       <router-view />
     </q-page-container>
   </q-layout>
@@ -47,60 +58,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import EssentialLink, { EssentialLinkProps } from 'components/EssentialLink.vue';
+
+const drawer = ref(false);
 
 defineOptions({
-  name: 'MainLayout'
+  name: 'MainLayout',
 });
-
-const linksList: EssentialLinkProps[] = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
-
-const leftDrawerOpen = ref(false);
-
-function toggleLeftDrawer () {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-}
 </script>
