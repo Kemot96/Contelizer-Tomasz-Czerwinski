@@ -32,15 +32,22 @@ export function rearrangeLetters(fileContent: string) {
         .split(' ')
         .map((word) => {
           word = word.trim();
+          const firstChar = word.slice(0, 1);
           const lastChar = word.slice(-1);
+          let punctuationFirstChar = '';
+          let punctuationLastChar = '';
 
           if (PUNCTUATION_MARKS.includes(lastChar)) {
-            const wordPart = word.slice(0, -1);
-            const punctuationPart = lastChar;
-            return shuffleWord(wordPart) + punctuationPart;
-          } else {
-            return shuffleWord(word);
+            word = word.slice(0, -1);
+            punctuationLastChar = lastChar;
           }
+
+          if (PUNCTUATION_MARKS.includes(firstChar)) {
+            word = word.slice(1);
+            punctuationFirstChar = firstChar;
+          }
+
+          return punctuationFirstChar + shuffleWord(word) + punctuationLastChar;
         })
         .join(' ');
     })
