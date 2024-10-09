@@ -15,4 +15,12 @@ export default {
       error: 'Nie udało się odczytać zawartości pliku.',
     },
   },
+  peselValidator: {
+    button: 'Waliduj PESEL',
+    error: 'PESEL musi składać się z 11 cyfr!',
+    result: {
+      success: 'Pesel jest poprawny!',
+      failure: 'Pesel jest niepoprawny!',
+    },
+  },
 };
