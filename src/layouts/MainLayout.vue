@@ -11,40 +11,33 @@
           class="q-mr-md lt-sm"
         />
 
-        <nav class="row items-center q-ml-md gt-xs">
-          <RouterLink to="/" class="q-mr-md">{{
+        <nav class="row items-center q-ml-md gt-xs nav-container">
+          <RouterLink to="/" class="nav-link">{{
             $t('header.nav.files')
           }}</RouterLink>
           <q-separator dark vertical />
-          <RouterLink to="/pesel" class="q-mx-md">{{
+          <RouterLink to="/pesel" class="nav-link">{{
             $t('header.nav.pesel')
           }}</RouterLink>
           <q-separator dark vertical />
-          <RouterLink to="/api" class="q-ml-md">{{
+          <RouterLink to="/api" class="nav-link">{{
             $t('header.nav.api')
           }}</RouterLink>
         </nav>
 
         <q-space />
-
-        <!-- <div class="row items-center q-xs-none q-sm-none">
-          <strong>Current route path:</strong>
-          <q-badge color="primary" class="q-ml-xs">{{
-            $route.fullPath
-          }}</q-badge>
-        </div> -->
       </q-toolbar>
     </q-header>
 
     <q-drawer v-model="drawer" side="left" overlay>
       <q-list>
-        <q-item clickable v-ripple to="/">
+        <q-item clickable v-ripple to="/" class="drawer-item">
           <q-item-section>{{ $t('header.nav.files') }}</q-item-section>
         </q-item>
-        <q-item clickable v-ripple to="/pesel">
+        <q-item clickable v-ripple to="/pesel" class="drawer-item">
           <q-item-section>{{ $t('header.nav.pesel') }}</q-item-section>
         </q-item>
-        <q-item clickable v-ripple to="/api">
+        <q-item clickable v-ripple to="/api" class="drawer-item">
           <q-item-section>{{ $t('header.nav.api') }}</q-item-section>
         </q-item>
       </q-list>

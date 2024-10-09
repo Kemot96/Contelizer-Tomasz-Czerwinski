@@ -7,10 +7,15 @@
       accept=".txt"
       @rejected="rejectFileUpload"
       @update:model-value="handleFileUpload"
+      class="q-mb-xs"
     />
-    <q-btn color="primary" type="submit">{{
-      $t('fileUploadForm.button')
-    }}</q-btn>
+    <q-btn
+      color="primary"
+      type="submit"
+      :disable="!file"
+      style="margin-top: 16px"
+      >{{ $t('fileUploadForm.button') }}</q-btn
+    >
   </form>
 </template>
 
@@ -47,6 +52,5 @@ function rejectFileUpload() {
 
 function submitForm() {
   fileStore.shuffleFileContent();
-  file.value = null;
 }
 </script>
