@@ -1,41 +1,34 @@
-# Contelizer App (contelizer)
+# Zadanie rekrutacyjne: Junior Frontend Developer (VUE.JS) - Contelizer
 
-A Quasar Project
+## Instalacja paczek
 
-## Install the dependencies
 ```bash
-yarn
-# or
-npm install
+npm i
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+## Uruchomienie
+
 ```bash
-quasar dev
+# frontend
+npm run dev
+
+# testy jednostkowe
+npm run test
 ```
 
+### Frontend: http://localhost:9000/
 
-### Lint the files
+## W nagłówku są linki umożliwiające przełączanie się między zadaniami.
+
 ```bash
-yarn lint
-# or
-npm run lint
+Lista zadań:
+
+Zadanie 1
+Napisz program w Vue3, który posiada obsługę formularza do wgrania pliku tekstowego, a następnie przestawi losowo szyk liter w każdym wierszu oprócz pierwszej i ostatniej litery wyrazu. Uwzględnij interpunkcję, wielkie/małe litery, wielolinijkowe teksty, polskie znaki.
+
+Zadanie 2
+Napisz program w Vue3 do walidacji numeru PESEL zgodnie z oficjalną specyfikacją formatu. Przygotuj testy jednostkowe sprawdzające kilka danych nieprawidłowych i przynajmniej jeden poprawny numer PESEL.
+
+Zadanie 3
+Napisz w Vue3 obsługę API dostępnego pod adresem https://gorest.co.in/. Aplikacja powinna posiadać widok listy użytkowników (pobranych z API) oraz mieć możliwość ich wyszukiwania i edycji istniejących wpisów.
 ```
-
-
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
-
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
