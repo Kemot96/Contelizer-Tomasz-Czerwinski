@@ -54,7 +54,11 @@ module.exports = configure(function (/* ctx */) {
 
       // publicPath: '/',
       // analyze: true,
-      // env: {},
+      env: {
+        API: 'https://gorest.co.in/public/v2',
+        token:
+          'bcf5126c44c12216d7b3510fc79c8fc52810dc08f83cf27a5c73f83c0d8e25e6', // NOT SAFE HERE, SHOULD BE STORED ON BACKEND, BUT THIS IS FRONT ONLY APP :)
+      },
       // rawDefine: {}
       // ignorePublicFolder: true,
       // minify: false,
