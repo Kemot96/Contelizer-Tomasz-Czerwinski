@@ -8,6 +8,7 @@
       @rejected="rejectFileUpload"
       @update:model-value="handleFileUpload"
       class="q-mb-xs"
+      bg-color="indigo-1"
     />
     <q-btn
       color="primary"

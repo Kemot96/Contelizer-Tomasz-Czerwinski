@@ -14,6 +14,7 @@
         @update:model-value="clearResult"
         style="width: 100%"
         class="q-mb-xs"
+        bg-color="indigo-1"
       />
       <q-btn color="primary" type="submit" dense style="width: 100%">
         {{ $t('peselValidator.button') }}
